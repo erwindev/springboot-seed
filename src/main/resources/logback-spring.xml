@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <springProperty scope="context" name="service" source="info.app.name" defaultValue="Start Template"/>
+    <springProperty scope="context" name="environment" source="erwindev.api_version" defaultValue="local"/>
+    <springProperty scope="context" name="elk_host" source="erwindev.elk_host" defaultValue="192.168.99.100:5003" />
+
+    <appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${elk_host}</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>
+            </customFields>
+        </encoder>
+    </appender>
+
+    <root level="INFO" >
+        <appender-ref ref="logstash" />
+    </root>
+</configuration>
