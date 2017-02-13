@@ -5,27 +5,19 @@ There are several ways to run the application.
 
 You can choose to generate a jar file.  In which case, you will need to run
 ```
-#!gradle
-
 gradle assemble
 ```
 The command will generate **nameofproject-0.1.0.jar** under
 ```
-#!gradle
-
 projectlocation/build/libs
 ```
 You will then need to run the jar using the following command
 ```
-#!gradle
-
 java -jar nameofproject-0.1.0.jar
 ```
 
 Or execute from the command line
 ```
-#!gradle
-
 gradle run
 ```
 
@@ -52,8 +44,6 @@ This is a spock test.
 To use Postgres, you will need to use the following dependency:
 
 ```
-#!gradle
-
 compile("postgresql:postgresql:9.1-901.jdbc4")
 ```
 
@@ -62,8 +52,6 @@ If you decide to use Postgres, you will need to setup the datasource settings in
 
 
 ```
-#!gradle
-
 spring.datasource.driverClassName=org.postgresql.Driver
 spring.datasource.url=jdbc:postgresql://ipadress:port/dbname
 spring.datasource.username=username
@@ -73,8 +61,6 @@ spring.datasource.password=password
 To use the embedded H2 database, you will need to use the following dependency:
 
 ```
-#!gradle
-
 compile("com.h2database:h2:1.0.60")
 ```
 
@@ -84,8 +70,6 @@ compile("com.h2database:h2:1.0.60")
 By default, Spring uses DBCP for its connection pooling.  HikariCP is preferred.  To do this, tomcat-jdbc need to be excluded from the spring-boot-starter-jdbc
 
 ```
-#!gradle
-
 compile("org.springframework.boot:spring-boot-starter-jdbc"){
 	exclude module: 'tomcat-jdbc'
 }
@@ -97,8 +81,6 @@ compile("org.springframework.boot:spring-boot-starter-jdbc"){
 The application has an embedded web server.  Spring Boot will come with Tomcat as the default web server.  For this application, I have chosen Jetty.  
 
 ```
-#!gradle
-
 compile("org.springframework.boot:spring-boot-starter-web"){
    exclude module: 'spring-boot-starter-tomcat'
 }
@@ -112,8 +94,6 @@ compile("org.springframework.boot:spring-boot-starter-jetty")
 
 In order to run the spock test.  You will need start Spring Boot application before you can start to test.  Once you have it started, you can run
 ```
-#!gradle
-
 gradle test
 
 ## API Documentation
