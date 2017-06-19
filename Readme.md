@@ -13,16 +13,8 @@ projectlocation/build/libs
 ```
 You will then need to run the jar using the following command
 ```
-java -jar nameofproject-0.1.0.jar
+java -jar build/libs/nameofproject-0.1.0.jar
 ```
-
-Or execute from the command line
-```
-gradle run
-```
-
-Or thru the IDE.  In this case, you will need to run the **Application.groovy** script.
-
 
 ## What's in this project
 ### Controller Object (MainController)
@@ -61,7 +53,7 @@ spring.datasource.password=password
 To use the embedded H2 database, you will need to use the following dependency:
 
 ```
-compile("com.h2database:h2:1.0.60")
+compile("com.h2database:h2:1.4.196")
 ```
 
 **Please note: You can only use one.**

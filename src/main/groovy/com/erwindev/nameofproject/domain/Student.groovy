@@ -17,7 +17,7 @@ import com.erwindev.nameofproject.domain.Classroom
 
 @ToString
 @Entity
-@Table(name="student", schema="template")
+@Table(name="student")
 class Student {
 
 	@Id

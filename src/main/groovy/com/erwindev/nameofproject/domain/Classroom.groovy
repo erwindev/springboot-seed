@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 
 @ToString
 @Entity
-@Table(name="classroom", schema="template")
+@Table(name="classroom")
 class Classroom {
 
 	@Id

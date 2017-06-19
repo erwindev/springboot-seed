@@ -8,7 +8,7 @@ apply plugin: 'net.saliman.cobertura'
 
 buildscript {
 	ext {
-		springBootVersion = '1.5.1.RELEASE'
+		springBootVersion = '1.5.4.RELEASE'
 	}
     repositories {
         maven { url "https://repo.spring.io/libs-release" }
@@ -64,26 +64,22 @@ dependencies {
 	//Groovy RESTClient compile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
 
 	//compile("org.codehaus.groovy:groovy")
-	compile("org.codehaus.groovy:groovy-all:2.4.8")
-	compile("org.postgresql:postgresql:9.4.1212")
+	compile("org.codehaus.groovy:groovy-all:2.4.11")
+	//PostgreSQL compile("org.postgresql:postgresql:9.4.1212")
 	//MySQL runtime("mysql:mysql-connector-java:5.1.34")
 	//SQL Server compile files("lib/sqljdbc4.jar")
-	//Local H2 compile("com.h2database:h2:1.0.60")
+	//Local H2
+	compile("com.h2database:h2:1.4.196")
 
 	//Hikari Connection Pool
-	compile('com.zaxxer:HikariCP:2.6.0')
+	compile('com.zaxxer:HikariCP:2.6.3')
 
 	//flyway
-	compile("org.flywaydb:flyway-core:4.1.0")
+	compile("org.flywaydb:flyway-core:4.2.0")
 
 	//swagger
 	compile("com.mangofactory:swagger-springmvc:1.0.2")
 
-
-	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.6.5'
-	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.6.5'
-	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.6.5'
-	//compile("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.6.5")
 
 	// http://mvnrepository.com/artifact/ch.qos.logback/logback-core
 	compile group: 'ch.qos.logback', name: 'logback-core', version: '1.1.6'
@@ -122,7 +118,7 @@ eclipse {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.9'
+    gradleVersion = '3.4'
 }
 
 task srcZip(type: Zip) {
