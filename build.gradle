@@ -2,7 +2,7 @@ apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 apply plugin: 'org.flywaydb.flyway'
 apply plugin: 'net.saliman.cobertura'
 
@@ -93,14 +93,8 @@ dependencies {
 	compile group: 'net.logstash.logback', name: 'logstash-logback-encoder', version: '4.7'
 
 
+	testCompile("junit:junit")
 	testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
-	testCompile("org.spockframework:spock-core:1.0-groovy-2.4") // for unit testing and mocking service layers
-	testCompile("org.spockframework:spock-spring:1.0-groovy-2.4")
-
-	testCompile("org.apache.httpcomponents:httpclient:4.5.2")
-	testCompile("cglib:cglib-nodep:2.2")
-
-	testRuntime("org.slf4j:slf4j-api:1.7.10")
 }
 
 cobertura {

@@ -1,22 +1,36 @@
 package com.erwindev.nameofproject.service
 
-import org.springframework.transaction.annotation.Transactional
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import static org.assertj.core.api.Assertions.assertThat
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@WebAppConfiguration
-@Transactional
+import org.junit.Test
+import org.junit.runner.RunWith
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Bean
+import org.springframework.boot.test.context.TestConfiguration
+import org.springframework.test.context.junit4.SpringRunner
+import org.springframework.boot.test.mock.mockito.MockBean
+
+import com.erwindev.nameofproject.service.ClassroomService
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
 class ServiceTest {
-	public void "magic"() {
-		given:
-			boolean davidCopperfield = true
 
-		when:
-			boolean magic = true
+	@TestConfiguration
+	static class ClassroomServiceImplTestContextConfiguration {
 
-		then:
-			davidCopperfield == magic
+			@Bean
+			public ClassroomService classroomService() {
+					return new ClassroomService()
+			}
+	}
+
+	@Autowired
+	ClassroomService classroomService
+
+	@Test
+	public void whoAmIShouldReturnMessageFromService() throws Exception{
+		assertThat(classroomService.whoAmI(), is('ClassroomService'))
 	}
 }
