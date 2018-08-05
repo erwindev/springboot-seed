@@ -87,8 +87,7 @@ compile("org.springframework.boot:spring-boot-starter-jetty")
 In order to run the spock test.  You will need start Spring Boot application before you can start to test.  Once you have it started, you can run
 ```
 gradle test
+```
 
 ## API Documentation
 API Documentation is rendered using Swagger.
-
-```
